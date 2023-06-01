@@ -16,13 +16,13 @@ app.listen(port, () => {
 app.post("/enviarMail", async (req, res) => {
   const{tempe} = req.body; 
   console.log(tempe);
-  if (tempe >= 31) {
+  if (tempe >= 33) {
     const mail = await transporter.sendMail({
       from: "prueba@artresde.net",
       to: "alangp@miumg.edu.gt",
       subject: "ALERTA DE TEMPERATURA MAXIMA",
       html: `<h1>EL SENSOR HA DETECTADO : ${tempe} C°</h1>
-      <p>POR FAVOR REVISAR EL CUARTO DONDE ESTA SU SENSOR!!!!</p>`,
+      <p>POR FAVOR REVISAR, YA QUE HAY POSIBILIDAD DE INCENDIO!!!!</p>`,
     });
     res.send("correo enviado correctamente");
   }else{
